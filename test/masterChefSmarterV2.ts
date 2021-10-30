@@ -108,7 +108,6 @@ describe("MasterChefSmarterV2 contract", () => {
 
             expect(await lpToken.balanceOf(john.address)).to.equal(ethers.utils.parseEther(String(amountToDeposit)));
 
-            // await masterChefSmarterCoinV2.connect(john).withdraw(0, ethers.utils.parseEther('600'), { from: john.address});
             await masterChefSmarterCoinV2.connect(john).emergencyWithdraw(0)
 
             const dumbFee = amountToDeposit * 0.7;

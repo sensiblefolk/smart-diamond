@@ -90,9 +90,8 @@ contract MasterChefSmarterCoinV2 is MasterChefJoeV2 {
         // not my best of names so nomies don't get spooked but for this we will leave it like that
         uint256 dumbFee = _amount.mul(dumbFeePercent).div(1000);
 
-        uint256 totalFee = treasuryFee.add(dumbFee);
         console.log("treasury fees %s, dumb fees %s, current amount %s", treasuryFee, dumbFee, _amount);
-        _amount = _amount.sub(totalFee);
+        _amount = _amount.sub(treasuryFee).sub(dumbFee);
 
         console.log("amount to be transferred %s", _amount);
 
